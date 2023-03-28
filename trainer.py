@@ -15,7 +15,9 @@ class Trainer:
 	def switch_active_pokemon(self, new_active):
 		if new_active < len(self.pokemons) and new_active >= 0:
 			if self.pokemons[new_active].is_knocked_out:
-				print(f"{self.pokemons[new_active].name} is knocked out. You can't make it your active pokemon")
+				print(
+				 f"{self.pokemons[new_active].name} is knocked out. You can't make it your active pokemon"
+				)
 			elif new_active == self.active_pokemon:
 				print(f"{self.pokemons[new_active].name} is already your active pokemon")
 			else:

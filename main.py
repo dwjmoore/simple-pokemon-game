@@ -1,8 +1,9 @@
 import match_setup
+import match_actions
 
-trainer_one, trainer_two = match_setup.choose_pokemons(match_setup.get_trainer_names(), match_setup.create_pokemon())
+trainer_one_name, trainer_two_name = match_setup.get_trainer_names()
 
-print()
-print(trainer_one)
-print()
-print(trainer_two)
+trainer_one, trainer_two = match_setup.choose_pokemons(
+ trainer_one_name, trainer_two_name, match_setup.create_pokemon())
+
+match_actions.display_menu(trainer_one)

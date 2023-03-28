@@ -14,14 +14,14 @@ def create_pokemon():
 
 def get_trainer_names():
 	print(
-	 "Welcome to the world of Pokemon. Please enter a name for player one and hit enter."
+	 "Welcome to the world of Pokemon.\nPlease enter a name for player one and hit enter."
 	)
-	trainer_one_name = input()
+	trainer_one_name = input("> ")
 	print(
-	 f"Hi, {trainer_one_name}! Welcome! Let's find you an opponent. Enter a name for the second player."
+	 f"\nHi, {trainer_one_name}! Welcome! Let's find you an opponent.\nEnter a name for the second player."
 	)
-	trainer_two_name = input()
-	print(f"Hi, {trainer_two_name}!")
+	trainer_two_name = input("> ")
+	print(f"\nHi, {trainer_two_name}! Welcome!\n")
 	return trainer_one_name, trainer_two_name
 
 
@@ -30,9 +30,9 @@ def choose_pokemons(trainer_one_name, trainer_two_name, pokemon_list):
 	trainer_two_pokemon = []
 
 	print(
-	 f"Let's pick our Pokemon! {trainer_one_name}, would you like a Level 7 Charmander, or a Level 7 Squirtle? {trainer_two_name} will get the other one. Type either 'Charmander' or 'Squirtle'."
+	 f"Let's pick our Pokemon!\n{trainer_one_name}, would you like a Level 7 Charmander, or a Level 7 Squirtle? {trainer_two_name} will get the other one. Type either 'Charmander' or 'Squirtle'."
 	)
-	choice = input()
+	choice = input("> ")
 	while choice != 'Charmander' and choice != 'Squirtle':
 		print(
 		 "Whoops, it looks like you didn't choose 'Charmander' or 'Squirtle'. Try selecting one again!"
@@ -48,12 +48,12 @@ def choose_pokemons(trainer_one_name, trainer_two_name, pokemon_list):
 	print(
 	 f"{trainer_two_name}, would you like a Level 9 Lapras, or a Level 10 Bulbasaur? {trainer_one_name} will get the other one. Type either 'Lapras' or 'Bulbasaur'."
 	)
-	choice = input()
+	choice = input("> ")
 	while choice != 'Lapras' and choice != 'Bulbasaur':
 		print(
 		 "Whoops, it looks like you didn't choose 'Lapras' or 'Bulbasaur'. Try selecting one again!"
 		)
-		choice = input()
+		choice = input("> ")
 	if choice == 'Lapras':
 		trainer_one_pokemon.append(pokemon_list[3])
 		trainer_two_pokemon.append(pokemon_list[2])
@@ -64,12 +64,12 @@ def choose_pokemons(trainer_one_name, trainer_two_name, pokemon_list):
 	print(
 	 f"{trainer_one_name}, would you like a Level 5 Vulpix, or a Level 4 Staryu? {trainer_two_name} will get the other one. Type either 'Vulpix' or 'Staryu'."
 	)
-	choice = input()
+	choice = input("> ")
 	while choice != 'Vulpix' and choice != 'Staryu':
 		print(
 		 "Whoops, it looks like you didn't choose 'Vulpix' or 'Staryu'. Try selecting one again!"
 		)
-		choice = input()
+		choice = input("> ")
 	if choice == 'Vulpix':
 		trainer_one_pokemon.append(pokemon_list[4])
 		trainer_two_pokemon.append(pokemon_list[5])
@@ -80,9 +80,10 @@ def choose_pokemons(trainer_one_name, trainer_two_name, pokemon_list):
 	trainer_one = trainer.Trainer(trainer_one_pokemon, 3, trainer_one_name)
 	trainer_two = trainer.Trainer(trainer_two_pokemon, 3, trainer_two_name)
 
-	print("Let's get ready to fight! Here are our two trainers")
-
-	# print(trainer_one)
-	# print(trainer_two)
+	print("Let's get ready to fight! Here are our two trainers\n")
+	print(trainer_one)
+	print()
+	print(trainer_two)
+	print()
 
 	return trainer_one, trainer_two
