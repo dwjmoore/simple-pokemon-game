@@ -29,53 +29,52 @@ def choose_pokemons(trainer_one_name, trainer_two_name, pokemon_list):
 	trainer_one_pokemon = []
 	trainer_two_pokemon = []
 
-	print(
-	 f"Let's pick our Pokemon!\n{trainer_one_name}, would you like a Level 7 Charmander, or a Level 7 Squirtle? {trainer_two_name} will get the other one. Type either 'Charmander' or 'Squirtle'."
-	)
-	choice = input("> ")
-	while choice != 'Charmander' and choice != 'Squirtle':
-		print(
-		 "Whoops, it looks like you didn't choose 'Charmander' or 'Squirtle'. Try selecting one again!"
-		)
-		choice = input()
-	if choice == 'Charmander':
-		trainer_one_pokemon.append(pokemon_list[0])
-		trainer_two_pokemon.append(pokemon_list[1])
-	else:
-		trainer_one_pokemon.append(pokemon_list[1])
-		trainer_two_pokemon.append(pokemon_list[0])
+	print("\nLet's pick our Pokemon!\n")
 
-	print(
-	 f"{trainer_two_name}, would you like a Level 9 Lapras, or a Level 10 Bulbasaur? {trainer_one_name} will get the other one. Type either 'Lapras' or 'Bulbasaur'."
-	)
-	choice = input("> ")
-	while choice != 'Lapras' and choice != 'Bulbasaur':
-		print(
-		 "Whoops, it looks like you didn't choose 'Lapras' or 'Bulbasaur'. Try selecting one again!"
-		)
-		choice = input("> ")
-	if choice == 'Lapras':
-		trainer_one_pokemon.append(pokemon_list[3])
-		trainer_two_pokemon.append(pokemon_list[2])
-	else:
-		trainer_one_pokemon.append(pokemon_list[2])
-		trainer_two_pokemon.append(pokemon_list[3])
+	i = 0
+	draft_round = 1
 
-	print(
-	 f"{trainer_one_name}, would you like a Level 5 Vulpix, or a Level 4 Staryu? {trainer_two_name} will get the other one. Type either 'Vulpix' or 'Staryu'."
-	)
-	choice = input("> ")
-	while choice != 'Vulpix' and choice != 'Staryu':
-		print(
-		 "Whoops, it looks like you didn't choose 'Vulpix' or 'Staryu'. Try selecting one again!"
-		)
-		choice = input("> ")
-	if choice == 'Vulpix':
-		trainer_one_pokemon.append(pokemon_list[4])
-		trainer_two_pokemon.append(pokemon_list[5])
-	else:
-		trainer_one_pokemon.append(pokemon_list[5])
-		trainer_two_pokemon.append(pokemon_list[4])
+	while i < len(pokemon_list):
+		if draft_round % 2 != 0:
+			print(
+			 f"{trainer_one_name}, would you like a Level {pokemon_list[i].level} {pokemon_list[i].name} or a Level {pokemon_list[i+1].level} {pokemon_list[i+1].name}?"
+			)
+			print(
+			 f"{trainer_two_name} will get the other one. Type either '{pokemon_list[i].name}' or '{pokemon_list[i+1].name}'."
+			)
+			choice = input("> ")
+			while choice != pokemon_list[i].name and choice != pokemon_list[i + 1].name:
+				print(
+				 f"Whoops, it looks like you didn't choose '{pokemon_list[i].name}' or '{pokemon_list[i+1].name}'. Try selecting one again!"
+				)
+				choice = input("> ")
+			if choice == pokemon_list[i].name:
+				trainer_one_pokemon.append(pokemon_list[i])
+				trainer_two_pokemon.append(pokemon_list[i + 1])
+			else:
+				trainer_one_pokemon.append(pokemon_list[i + 1])
+				trainer_two_pokemon.append(pokemon_list[i])
+		else:
+			print(
+			 f"{trainer_two_name}, would you like a Level {pokemon_list[i].level} {pokemon_list[i].name} or a Level {pokemon_list[i+1].level} {pokemon_list[i+1].name}?"
+			)
+			print(
+			 f"{trainer_one_name} will get the other one. Type either '{pokemon_list[i].name}' or '{pokemon_list[i+1].name}'."
+			)
+			choice = input("> ")
+			while choice != pokemon_list[i].name and choice != pokemon_list[i + 1].name:
+				print(
+				 f"Whoops, it looks like you didn't choose '{pokemon_list[i].name}' or '{pokemon_list[i+1].name}'. Try selecting one again!"
+				)
+				choice = input("> ")
+			if choice == pokemon_list[i].name:
+				trainer_two_pokemon.append(pokemon_list[i])
+				trainer_one_pokemon.append(pokemon_list[i + 1])
+			else:
+				trainer_two_pokemon.append(pokemon_list[i + 1])
+				trainer_one_pokemon.append(pokemon_list[i])
+		i += 2
+		draft_round += 1
 
 	trainer_one = trainer.Trainer(trainer_one_pokemon, 3, trainer_one_name)
 	trainer_two = trainer.Trainer(trainer_two_pokemon, 3, trainer_two_name)
