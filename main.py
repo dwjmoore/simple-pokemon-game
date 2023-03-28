@@ -1,13 +1,12 @@
 import pokemon
 import trainer
 
-# Six pokemon are made with different levels. (If no level is given, it is level 5)
-a = Pokemon("Charmander", "Fire", 7)
-b = Pokemon("Squirtle", "Water")
-c = Pokemon("Lapras", "Water", 9)
-d = Pokemon("Bulbasaur", "Grass", 10)
-e = Pokemon("Vulpix", "Fire")
-f = Pokemon("Staryu", "Water", 4)
+a = pokemon.Pokemon("Charmander", "Fire", 7)
+b = pokemon.Pokemon("Squirtle", "Water")
+c = pokemon.Pokemon("Lapras", "Water", 9)
+d = pokemon.Pokemon("Bulbasaur", "Grass", 10)
+e = pokemon.Pokemon("Vulpix", "Fire")
+f = pokemon.Pokemon("Staryu", "Water", 4)
 
 #Getting input to get the trainers names and letting them select the Pokemon they want.
 trainer_one_name = input(
@@ -80,8 +79,8 @@ else:
 	trainer_two_pokemon.append(e)
 
 # Creating the Trainer objects with the given names and pokemon lists
-trainer_one = Trainer(trainer_one_pokemon, 3, trainer_one_name)
-trainer_two = Trainer(trainer_two_pokemon, 3, trainer_two_name)
+trainer_one = trainer.Trainer(trainer_one_pokemon, 3, trainer_one_name)
+trainer_two = trainer.Trainer(trainer_two_pokemon, 3, trainer_two_name)
 
 print("Let's get ready to fight! Here are our two trainers")
 
