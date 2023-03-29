@@ -9,7 +9,7 @@ class Pokemon:
 		self.is_knocked_out = False
 
 	def __repr__(self):
-		return f"This level {self.level} {self.name} has {self.health} hit points remaining. They are a {self.type} type Pokemon"
+		return f"Name: {self.name}, Type: {self.type}, Level: {self.level}, Health: {self.health}"
 
 	def revive(self):
 		self.is_knocked_out = False

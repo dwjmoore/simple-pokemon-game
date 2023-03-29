@@ -7,10 +7,10 @@ class Trainer:
 		self.name = name
 
 	def __repr__(self):
-		print(f"The trainer {self.name} has the following pokemon")
+		print(f"The trainer {self.name} has the following Pokemon:")
 		for pokemon in self.pokemons:
 			print(pokemon)
-		return f"The current active pokemon is {self.pokemons[self.active_pokemon].name}"
+		return f"The current active Pokemon is {self.pokemons[self.active_pokemon].name}"
 
 	def switch_active_pokemon(self, new_active):
 		if new_active < len(self.pokemons) and new_active >= 0:

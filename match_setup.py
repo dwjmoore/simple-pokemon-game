@@ -79,10 +79,4 @@ def choose_pokemons(trainer_one_name, trainer_two_name, pokemon_list):
 	trainer_one = trainer.Trainer(trainer_one_pokemon, 3, trainer_one_name)
 	trainer_two = trainer.Trainer(trainer_two_pokemon, 3, trainer_two_name)
 
-	print("Let's get ready to fight! Here are our two trainers\n")
-	print(trainer_one)
-	print()
-	print(trainer_two)
-	print()
-
 	return trainer_one, trainer_two
