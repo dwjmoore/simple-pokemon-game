@@ -19,8 +19,13 @@ def execute_action(trainer, other_trainer, choice):
 			trainer.use_potion()
 			break
 		if choice == 3:
-			print("\nThe method for this choice needs to be refactored.")
-			# trainer.switch_active_pokemon(trainer)
+			print("Select a Pokemon to deploy using its number:")
+			for i in range(len(trainer.pokemons)):
+				if i == trainer.active_pokemon:
+					continue
+				print(f"({i}) {trainer.pokemons[i]}")
+			selection = int(input("> "))
+			trainer.switch_active_pokemon(selection)
 			break
 		if choice == 4:
 			print()
